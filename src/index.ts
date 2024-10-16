@@ -242,6 +242,11 @@ const BLEPrinter = {
       )
     ),
 
+  isConnected: (): Promise<boolean> =>
+    new Promise((resolve) =>
+        RNBLEPrinter.isConnected((connected: boolean) => resolve(connected)
+    )),
+    
   connectPrinter: (inner_mac_address: string): Promise<IBLEPrinter> =>
     new Promise((resolve, reject) =>
       RNBLEPrinter.connectPrinter(
