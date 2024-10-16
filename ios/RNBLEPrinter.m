@@ -244,5 +244,18 @@ RCT_EXPORT_METHOD(closeConn) {
     }
 }
 
+RCT_EXPORT_METHOD(isConnected:(RCTResponseSenderBlock)successCallback) {
+    @try {
+        if (m_printer) {
+            successCallback(@[@(YES)]);
+        } else {
+            successCallback(@[@(NO)]);
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"%@", exception.reason);
+        successCallback(@[@(NO)]);
+    }
+}
+
 @end
 

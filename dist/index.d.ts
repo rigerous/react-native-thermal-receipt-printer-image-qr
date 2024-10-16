@@ -77,6 +77,7 @@ declare const USBPrinter: {
 };
 declare const BLEPrinter: {
   init: () => Promise<void>;
+  isConnected: () => Promise<boolean>;
   getDeviceList: () => Promise<IBLEPrinter[]>;
   connectPrinter: (inner_mac_address: string) => Promise<IBLEPrinter>;
   closeConn: () => Promise<void>;

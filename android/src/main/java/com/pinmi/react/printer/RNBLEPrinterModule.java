@@ -43,6 +43,14 @@ public class RNBLEPrinterModule extends ReactContextBaseJavaModule implements RN
     }
 
     @ReactMethod
+    public void isConnected(Callback successCallback) {
+        if (this.adapter == null) {
+            this.adapter = BLEPrinterAdapter.getInstance();
+        }
+        successCallback.invoke(((BLEPrinterAdapter)this.adapter).isConnected());
+    }
+
+    @ReactMethod
     @Override
     public void closeConn() {
         if (this.adapter == null) {
